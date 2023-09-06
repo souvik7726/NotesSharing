@@ -1,0 +1,62 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+    .boxlogin {
+  margin: 10% auto;
+  display: block;
+  width:400px;
+  text-align:center;
+}
+
+</style>
+<div class="boxlogin" >
+    <h2 class="text-center">SIGN UP</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <label>First Name</label>
+        <input type="text" class="form-control" placeholder="Enter First Name" name="fnm">
+        <label>Last Name</label>
+        <input type="text" class="form-control" placeholder="Enter Last Name" name="lnm">
+        <label>Email ID</label>
+        <input  type="email" class="form-control" placeholder="Enter Email ID" name="emailid">
+        <label>Phone</label>
+        <input  type="text" class="form-control" placeholder="Enter Phone No" name="phn">
+        <label>Branch</label>
+        <select class="form-control" name="branch">
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="ECE">ECE</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+        </select>
+        <label>Are You?</label>
+        <select class="form-control" name="pos">
+            <option value="Student">Student</option>
+            <option value="Faculty">Faculty</option>
+        </select>
+        <label>Password</label>
+        <input class="form-control" type="password" placeholder="password" name="pass">
+        <input type="submit" class="btn btn-primary mt-2" value="REGISTER" >
+    </form>
+    <p>Existing Customer?</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">LOGIN</a>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Account Created Successfully');
+    window.location=('{% url 'login' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Error Ocuured ! Please try again');
+</script>
+{% endifequal %}
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<style>
+    h2,
+    h3 {
+        padding: 10px;
+        color: white;
+    }
+
+    .cont1 {
+        background-color: rgb(63, 63, 136);
+        border-radius: 10px;
+    }
+
+    .cont1:hover {
+        background-color: #486ad3;
+        transform: scale(1.2);
+    }
+</style>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-3 text-center mydiv">
+            <div class="cont1">
+                <h2>5</h2>
+                <a href="#">
+                    <h3>Pending Notes</h3>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="cont1">
+                <h2>5</h2>
+                <a href="#">
+                    <h3>Accepted Notes</h3>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="cont1">
+                <h2>5</h2>
+                <a href="#">
+                    <h3>Rejected Notes</h3>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="cont1">
+                <h2>5</h2>
+                <a href="#">
+                    <h3>All Notes</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <div class="container mt-5 text-center">
+        <p style="font-size: 40px; color: red;font-weight: bold;">Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All Rights Reserved
+        </p>
+
+    </div>
+</footer>
+
+
+{% endblock %}

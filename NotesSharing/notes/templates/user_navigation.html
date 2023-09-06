@@ -1,0 +1,77 @@
+<html lang="en">
+<style>
+    h3 {
+        padding: 10px;
+        color: white;
+    }
+
+    .cont1 {
+        background-color: rgb(63, 63, 136);
+        border-radius: 10px;
+    }
+
+    .cont1:hover {
+        background-color: #486ad3;
+        transform: scale(1.2);
+    }
+</style>
+<head>
+    {%load static%}
+    <title>Study Notes Sharing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-sm" style="background-color: lightblue;">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Welcome
+                {{request.user.first_name}}</button>
+            <div class="dropdown-menu">
+                <a href="{% url 'user_profile' %}" class="dropdown-item">PROFILE</a>
+                <a href="" class="dropdown-item">EDIT PROFILE</a>
+                <a href="" class="dropdown-item">CHANGE PASSWORD</a>
+                <a href="{% url 'logout' %}" class="dropdown-item">LOGOUT</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-4 ">
+        <div class="row">
+            <div class="col-sm-3 text-center mydiv">
+                <div class="cont1">
+                    <a href="#">
+                        <h3>UPLOAD NOTES</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3 text-center mydiv">
+                <div class="cont1">
+                    <a href="#">
+                        <h3>MY NOTES</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3 text-center mydiv">
+                <div class="cont1">
+                    <a href="#">
+                        <h3>ALL NOTES</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+
+</html>
+{% block body %}
+{% endblock %}
