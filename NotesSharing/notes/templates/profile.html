@@ -1,0 +1,96 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block body %}
+<style>
+    h3 {
+        padding: 10px;
+        color: white;
+    }
+
+    .cont1 {
+        background-color: rgb(63, 63, 136);
+        border-radius: 10px;
+    }
+
+    .cont1:hover {
+        background-color: #486ad3;
+        transform: scale(1.2);
+    }
+</style>
+<div class="container mt-5">
+    <h2 class="text-center">PROFILE</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>Full Name : </b>
+
+        </div>
+        <div class="col-md-6" style="text-transform: capitalize;">
+            {{data.user.first_name}}
+            {{data.user.last_name}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>Email Id : </b>
+
+        </div>
+        <div class="col-md-6">
+            {{data.user.username}}
+            
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>Contact : </b>
+
+        </div>
+        <div class="col-md-6">
+            {{data.contact}}
+            
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>Branch : </b>
+
+        </div>
+        <div class="col-md-6">
+            {{data.branch}}
+            
+        </div>
+    </div>
+    <hr>
+    <div class="container" style="margin-top: 100px; margin-left: 20px;">
+        <div class="row">
+            <div class="col-sm-3 text-center mydiv">
+                <div class="cont1">
+                    <a href="{% url 'upload_notes' %}">
+                        <h3>UPLOAD NOTES</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3 text-center mydiv" style="margin-left: 40px;">
+                <div class="cont1">
+                    <a href="{% url 'view_notes' %}">
+                        <h3>MY NOTES</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3 text-center mydiv" style="margin-left: 40px;">
+                <div class="cont1">
+                    <a href="{% url 'view_allnotes' %}">
+                        <h3>ALL NOTES</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    
+</div>
+{% endblock %}

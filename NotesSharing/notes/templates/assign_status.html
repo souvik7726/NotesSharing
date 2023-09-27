@@ -1,0 +1,44 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<script src="//code.jquery.com/jquery-3.7.0.js"></script>
+<script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+<script>
+    $(document).ready(function(){
+        $('#mytable').DataTable();
+    })
+</script>
+<div class="container mt-5">
+    
+    <h2 class="text-center">ASSIGN STATUS</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <label> Notes ID</label>
+        <input type="text" name="notesId" class="form-control" value="{{notes.id}}" readonly>
+        <label>Status</label>
+        <select name="status" class="form-control">
+            <option value="accept">ACCEPT</option>
+            <option value="reject">REJECT</option>
+        </select>
+        <br>
+        <input type="submit" value="SUBMIT" class="btn btn-primary">
+    </form>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Status Updated Successfully');
+    window.location=('{% url 'all_notes' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Error Ocuured ! Please try again');
+</script>
+{% endifequal %}
+{% endblock %}
